@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Key-Value Registry</title>
+</head>
+<body>
+    <h1>Key-Value Registry</h1>
+    <form method="POST" action="/register">
+        <label for="key">Key:</label>
+        <input type="text" name="key" required>
+        <label for="value">Value:</label>
+        <input type="text" name="value" required>
+        <button type="submit">Register</button>
+    </form>
+    <ul>
+        {% for key_value in key_values %}
+            <li>
+                <strong>{{ key_value.key }}</strong>: {{ key_value.value }}
+                <a href="/deregister/{{ key_value.id }}">Deregister</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
